@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="4" hostname="chloehandeMacBook-Pro.local" name="pytest" skipped="0" tests="14" time="0.147" timestamp="2020-03-14T17:14:20.462406"><testcase classname="unit.test_demo.TestDemo" file="unit/test_demo.py" line="29" name="test_demo" time="0.002"><failure message="AssertionError: False is not true">self = &lt;unit.test_demo.TestDemo testMethod=test_demo&gt;
+
+    def test_demo(self):
+        print(&quot;testdemo&quot;)
+&gt;       self.assertTrue(False)
+E       AssertionError: False is not true
+
+unit/test_demo.py:32: AssertionError</failure><system-out>setupclass
+setup
+testdemo
+teardown
+</system-out></testcase><testcase classname="unit.test_demo.TestDemo" file="unit/test_demo.py" line="23" name="test_sum" time="0.002"><failure message="AssertionError: 4 != 3 : x=3 expection =3">self = &lt;unit.test_demo.TestDemo testMethod=test_sum&gt;
+
+    def test_sum(self):
+        print(&quot;testsum&quot;)
+        x = 1 + 2
+        print(x)
+&gt;       self.assertEqual(4, x, f&apos;x={x} expection =3&apos;)
+E       AssertionError: 4 != 3 : x=3 expection =3
+
+unit/test_demo.py:28: AssertionError</failure><system-out>setup
+testsum
+3
+teardown
+teardownclass
+</system-out></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="17" name="test_div_int[10-5-2]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="17" name="test_div_int[3-3-1]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="17" name="test_div_int[3--3--1]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="17" name="test_div_int[-3-3--1]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="17" name="test_div_int[0-1-0]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="30" name="test_div_float[2.22222222-2-1.111111]" time="0.003"><failure message="assert 1.11111111 == 1.111111
+ +  where 1.11111111 = div(2.22222222, 2)">number3 = 2.22222222, number4 = 2, expect1 = 1.111111
+
+    @allure.suite(&apos;float数据组&apos;)
+    @pytest.mark.float
+    @pytest.mark.parametrize(&quot;number3,number4,expect1&quot;, {
+        (2.33, 1, 2.33),
+        (6.66, 2.22, 3),
+        (2.22222222, 2, 1.111111)
+    })
+    def test_div_float(number3, number4, expect1):
+&gt;       assert div(number3, number4) == expect1
+E       assert 1.11111111 == 1.111111
+E        +  where 1.11111111 = div(2.22222222, 2)
+
+unit/test_py_test.py:39: AssertionError</failure></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="30" name="test_div_float[6.66-2.22-3]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="30" name="test_div_float[2.33-1-2.33]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="41" name="test_div_Zeroexception[1-0-None]" time="0.002"><failure message="TypeError: eval() arg 1 must be a string, bytes or code object">number5 = 1, number6 = 0, exception0 = None
+
+    @allure.suite(&apos;error数据组&apos;)
+    @pytest.mark.expection
+    @pytest.mark.parametrize(&quot;number5,number6,exception0&quot;, {
+        (1, 0, &apos;ZeroDivisionError&apos;),
+        (1, 0, None)
+    })
+    def test_div_Zeroexception(number5, number6, exception0):
+&gt;       with pytest.raises(eval(exception0)):
+E       TypeError: eval() arg 1 must be a string, bytes or code object
+
+unit/test_py_test.py:49: TypeError</failure></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="41" name="test_div_Zeroexception[1-0-ZeroDivisionError]" time="0.002"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="52" name="test_div_exception[3-a-TypeError]" time="0.003"></testcase><testcase classname="unit.test_py_test" file="unit/test_py_test.py" line="52" name="test_div_exception[a-3-TypeError]" time="0.002"></testcase></testsuite></testsuites>
