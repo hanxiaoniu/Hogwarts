@@ -15,7 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 class TestMTSC:
     def setup_method(self):
         self.driver = webdriver.Chrome()
-        self.driver.get('https://testerhome.com')
+        # self.driver.get('https://testerhome.com')
         self.driver.implicitly_wait(5)
 
     def test_page(self):
@@ -25,6 +25,15 @@ class TestMTSC:
         self.driver.find_element(*element).click()
         self.driver.find_element(By.CSS_SELECTOR, '.toc-item:nth-child(4) > .toc-item-link').click()
 
+    def test_submit(self):
+        self.driver.get('https://testerhome.com/topics/21044')
+        submit = (By.CSS_SELECTOR, '#reply-button')
+        # self.wait(10,expected_conditions.element_to_be_clickable(submit))
+        # self.driver.switch_to.frame(0)
+        self.driver.find_element(*submit).click()
+
     def teardown_method(self):
         time.sleep(10)
         self.driver.quit()
+
+
