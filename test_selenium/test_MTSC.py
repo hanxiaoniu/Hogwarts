@@ -7,10 +7,10 @@ import time
 
 import pytest
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
-
 
 class TestMTSC:
     def setup_method(self):
@@ -31,6 +31,13 @@ class TestMTSC:
         # self.wait(10,expected_conditions.element_to_be_clickable(submit))
         # self.driver.switch_to.frame(0)
         self.driver.find_element(*submit).click()
+
+    def test_mtsc2020(self):
+        self.driver.get("https://testerhome.com/topics/21805")
+        self.driver.find_element(By.LINK_TEXT,'第六届中国互联网测试开发大会').click()
+        print(self.driver.window_handles)
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        self.driver.find_element(By.LINK_TEXT,'演讲申请').click()
 
     def teardown_method(self):
         time.sleep(10)
