@@ -49,6 +49,15 @@ class TestMTSC:
         self.driver.switch_to.window(self.driver.window_handles[1])
         self.driver.find_element(By.LINK_TEXT, '演讲申请').click()
 
+    def test_js(self):
+        # json当前网页的打开时间
+        for code in ["return document.title",
+                     'return document.querySelector(".active").className',
+                     'JSON.stringify(performance.timing)'
+                     ]:
+            result = self.driver.execute_script(code)
+            print(result)
+
     def teardown_method(self):
         time.sleep(10)
         self.driver.quit()
