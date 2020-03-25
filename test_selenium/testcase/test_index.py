@@ -5,6 +5,7 @@
 # @File  : test_index.py
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from test_selenium.page.indexWechat import Index
 
 
 class TestIndex:
@@ -14,9 +15,8 @@ class TestIndex:
         self.driver.get("https://work.weixin.qq.com/")
 
     def test_register(self):
-        index = Index()
-        index.goto_register()
-
+        index = Index(self.driver)
+        index.goto_register().register("chloehanmin","hanmin")
 
         # self.driver.find_element(By.LINK_TEXT,'立即注册').click()
         # self.driver.find_element(By.ID,"corp_name").send_keys("chloehanmin")
