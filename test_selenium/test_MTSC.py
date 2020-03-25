@@ -23,6 +23,7 @@ class TestMTSC:
         elif browser == "chrome":
             self.driver = webdriver.Chrome()
         elif browser == "firefox":
+            # options
             self.driver = webdriver.Firefox()
         # self.driver = webdriver.Chrome()
         self.driver.get('https://testerhome.com')
